@@ -81,7 +81,7 @@ module.exports.templateTags = [
             }
 
             if (!renderedHeaders['content-length']) {
-                renderedHeaders['content-length'] = data.length;
+                renderedHeaders['content-length'] = data ? data.length : 0;
             }
             const canonical = canonicalize(request.method, requestURL.pathname, requestURL.query, renderedHeaders, data);
             const signature = sign(canonical, key, algorithm);
