@@ -16,6 +16,6 @@ $ git clone git@github.com:sexcom/insomnia-plugin-simple-hmac-auth.git
 
 ### Usage
 Add a new request to Insomnia with following headers:
-- authorization: api-key <yourApiClientId>
-- signature: <HMAC-template-tag> (type `HMAC` and press CTRL+SHIFT for suggestions)
-- date: <Date-template-tag-with-Custom-Format> (Format: `ddd, DD MMM YYYY HH:mm:ss ZZ`)
+- authorization: api-key [yourApiClientId]
+- signature: [HMAC-template-tag] (type `HMAC` and press CTRL+SHIFT for suggestions)
+- date: [Date-template-tag-with-Custom-Format] (Format: `ddd, DD MMM YYYY HH:mm:ss ZZ`)
