@@ -1,4 +1,4 @@
-# Insomnia HMAC plugin
+# Insomnia HMAC Plugin
 
 Add a customizable HMAC template tag to insomnia.
 
@@ -7,12 +7,19 @@ Uses [simple-hmac-auth](https://github.com/jessety/simple-hmac-auth) HMAC implem
 Based on [insomnia-plugin-cairn-hmac-auth](https://github.com/farfromrefug/insomnia-plugin-cairn-hmac-auth)
 
 
-### Install
-##### Manual installation
+### Install Plugin
+##### Manual Installation (Ubuntu 20)
 ```
 $ cd ~/snap/insomnia/current/.config/Insomnia/plugins
-$ git clone git@github.com:sexcom/insomnia-plugin-simple-hmac-auth.git
+$ npm i sexcom/insomnia-plugin-simple-hmac-auth
 ```
+
+### Enable Plugin
+
+- navigate to `Insomnia Core > Application > Preferences > Plugins`
+- click `Reload Plugins`
+- the new plugin should show up as `insomnia-plugin-simple-hmac-auth`
+- make sure the `Enable?` button for `insomnia-plugin-simple-hmac-auth` is on
 
 ### Usage
 Add a new request to Insomnia with following headers:
