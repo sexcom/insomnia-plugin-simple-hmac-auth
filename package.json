@@ -1,0 +1,59 @@
+{
+  "_from": "insomnia-plugin-simple-hmac-auth",
+  "_id": "insomnia-plugin-simple-hmac-auth@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-d8dgfdf7WyVkdJiE75yGzmTadE4ckeJhodtwTc2Em6T2aeSqRkhxdF5km9bITjVd5L8ib7dcSA2ZeboWFpnGoA==",
+  "_location": "/insomnia-plugin-simple-hmac-auth",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "insomnia-plugin-simple-hmac-auth",
+    "name": "insomnia-plugin-simple-hmac-auth",
+    "escapedName": "insomnia-plugin-simple-hmac-auth",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/insomnia-plugin-simple-hmac-auth/-/insomnia-plugin-simple-hmac-auth-1.0.0.tgz",
+  "_shasum": "523c360cc2cc32fa330643d5a38b7539f8562ccf",
+  "_spec": "insomnia-plugin-simple-hmac-auth",
+  "_where": "/home/wsergio/snap/insomnia/118/.config/Insomnia/plugins",
+  "author": {
+    "name": "Antoine Andrieu",
+    "email": "antoine@andrieu.me"
+  },
+  "bugs": {
+    "url": "https://github.com/sexcom/insomnia-plugin-simple-hmac-auth/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "An Insomnia plugin to handle HMAC authentication",
+  "homepage": "https://github.com/sexcom/insomnia-plugin-simple-hmac-auth#readme",
+  "insomnia": {
+    "name": "insomnia-plugin-simple-hmac-auth",
+    "description": "An Insomnia plugin that add a customizable HMAC template tag."
+  },
+  "keywords": [
+    "insomnia",
+    "insomnia-plugin"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "insomnia-plugin-simple-hmac-auth",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sexcom/insomnia-plugin-simple-hmac-auth.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "simple-hmac-auth": "^3.3.1"
+  }
+}
