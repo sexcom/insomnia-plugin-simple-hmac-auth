@@ -63,6 +63,10 @@ module.exports.templateTags = [
             const renderedUrl = await context.util.render(request.url);
             const requestURL = url.parse(renderedUrl);
             const data = request.body.text;
+            if (request.body.mimeType === 'multipart/form-data') {
+                context.app.alert('Whoops: it\'s not you, it\'s me', 'HMAC-signing does not support multipart requests for now');
+                return;
+            }
 
             // Only sign these headers
             const headerWhitelist = [
