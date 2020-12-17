@@ -2,6 +2,7 @@
 
 const { canonicalize, sign } = require('simple-hmac-auth');
 const url = require('url');
+const qs = require("qs");
 
 module.exports.templateTags = [
     {
@@ -85,9 +86,25 @@ module.exports.templateTags = [
             }
 
             if (!renderedHeaders['content-length']) {
-                renderedHeaders['content-length'] = data ? data.length : 0;
+                const contentLength = data ? data.length : 0;
+                if (contentLength > 0) {
+                    renderedHeaders['content-length'] = contentLength;
+                }
             }
-            const canonical = canonicalize(request.method, requestURL.pathname, requestURL.query, renderedHeaders, data);
+
+            let queryString = '';
+
+            if (request.parameters && request.parameters.length > 0) {
+                const valuesRendered = await Promise.all(request.parameters.map((param) => context.util.render(param.value)));
+                const paramsRendered = {};
+                request.parameters.forEach((param, index) => {
+                    paramsRendered[param.name] = valuesRendered[index];
+                })
+                queryString = qs.stringify(paramsRendered);
+
+            }
+
+            const canonical = canonicalize(request.method, requestURL.pathname, queryString, renderedHeaders, data);
             const signature = sign(canonical, key, algorithm);
 
             return `${identifier} ${algorithm} ${signature}`;
