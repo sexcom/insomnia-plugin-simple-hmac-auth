@@ -77,7 +77,9 @@ module.exports.templateTags = [
                 'content-type'
             ];
             const renderedHeaders = {};
-            for (const header of request.headers) {
+            const headersEnabled = request.headers.filter((header) => !header.disabled)
+
+            for (const header of headersEnabled) {
                 const headerName = (await context.util.render(header.name)).toLowerCase();
                 if (!headerWhitelist.includes(headerName)) {
                     continue;
@@ -95,12 +97,16 @@ module.exports.templateTags = [
             let queryString = '';
 
             if (request.parameters && request.parameters.length > 0) {
-                const valuesRendered = await Promise.all(request.parameters.map((param) => context.util.render(param.value)));
+                const valuesRendered = await Promise.all(
+                    request.parameters
+                        .filter((param) => !param.disabled)
+                        .map((param) => context.util.render(param.value))
+                );
                 const paramsRendered = {};
                 request.parameters.forEach((param, index) => {
                     paramsRendered[param.name] = valuesRendered[index];
                 })
-                queryString = qs.stringify(paramsRendered);
+                queryString = qs.stringify(paramsRendered, { encode: false });
 
             }
 
