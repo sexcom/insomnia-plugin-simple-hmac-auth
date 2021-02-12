@@ -106,7 +106,7 @@ module.exports.templateTags = [
                 request.parameters.forEach((param, index) => {
                     paramsRendered[param.name] = valuesRendered[index];
                 })
-                queryString = qs.stringify(paramsRendered, { encode: false });
+                queryString = qs.stringify(paramsRendered, { encode: true });
 
             }
 
