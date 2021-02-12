@@ -97,13 +97,12 @@ module.exports.templateTags = [
             let queryString = '';
 
             if (request.parameters && request.parameters.length > 0) {
+                const enabledParams = request.parameters.filter((param) => !param.disabled)
                 const valuesRendered = await Promise.all(
-                    request.parameters
-                        .filter((param) => !param.disabled)
-                        .map((param) => context.util.render(param.value))
+                    enabledParams.map((param) => context.util.render(param.value))
                 );
                 const paramsRendered = {};
-                request.parameters.forEach((param, index) => {
+                enabledParams.forEach((param, index) => {
                     paramsRendered[param.name] = valuesRendered[index];
                 })
                 queryString = qs.stringify(paramsRendered, { encode: true });
